@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Le Jeu de l'Énigme</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    img {
+      max-width: 100px;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Étape 1 : Introduction -->
+    <div id="etape1">
+      <h1>Bienvenue dans le Jeu de l'Énigme</h1>
+      <p>Une belle aventure se prépare... Clique sur "Suivant" pour découvrir le premier indice !</p>
+      <button onclick="nextStep(1)">Suivant</button>
+    </div>
+
+    <!-- Étape 2 : Premier indice -->
+    <div id="etape2" class="hidden">
+      <h2>Indice 1</h2>
+      <p>Le bonheur se cache derrière un petit secret...</p>
+      <img src="https://via.placeholder.com/100.png?text=Petit+Secret" alt="Petit Secret">
+      <button onclick="nextStep(2)">Suivant</button>
+    </div>
+
+    <!-- Étape 3 : Deuxième indice -->
+    <div id="etape3" class="hidden">
+      <h2>Indice 2</h2>
+      <p>Un nouvel objet apparaît... Observe bien !</p>
+      <img src="https://via.placeholder.com/100.png?text=Objet+Bébé" alt="Objet Bébé">
+      <button onclick="nextStep(3)">Suivant</button>
+    </div>
+
+    <!-- Étape 4 : Indice final -->
+    <div id="etape4" class="hidden">
+      <h2>Indice Final</h2>
+      <p>Est-ce que tu as une intuition quant à la grande nouvelle ?<br>
+         Quelque chose d'extraordinaire est sur le point d'arriver…
+      </p>
+      <button onclick="revealAnswer()">Révéler la réponse</button>
+    </div>
+
+    <!-- Révélation -->
+    <div id="reponse" class="hidden">
+      <h1>Félicitations !</h1>
+      <p>Tu as deviné : ma femme est enceinte !</p>
+      <img src="https://via.placeholder.com/150.png?text=Bébé" alt="Bébé">
+    </div>
+  </div>
+
+  <script>
+    // Fonction pour passer à l'étape suivante
+    function nextStep(current) {
+      document.getElementById('etape' + current).classList.add('hidden');
+      document.getElementById('etape' + (current + 1)).classList.remove('hidden');
+    }
+    // Révéler la grande nouvelle
+    function revealAnswer() {
+      document.getElementById('etape4').classList.add('hidden');
+      document.getElementById('reponse').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
